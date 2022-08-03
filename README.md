@@ -1,16 +1,10 @@
-# Tauri Svelte Template
-
-- **Tauri**
-- **GitHub action** for cross-platform builds
-- **Svelte**
-- **Vite**
-- **TypeScript**
-- **`svelte-preprocess`** with Sass installed by default
-- **Hot module replacement**
-- **ESLint**
-- **Prettier**
-
 ## Dev instructions
+
+### To-dos
+- [x] Add tailwindcss
+- [ ] Add flowbite (UI Components)
+- [ ] Add Overmind.js (for state management)
+- [ ] Work on WASM module that handles chord tranposing
 
 ### Get started
 
