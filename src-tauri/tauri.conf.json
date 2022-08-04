@@ -1,18 +1,27 @@
 {
-  "package": {
-    "productName": "Tauri Template"
-  },
+  "$schema": "../node_modules/@tauri-apps/cli/schema.json",
   "build": {
-    "distDir": "../build",
+    "beforeBuildCommand": "pnpm build",
+    "beforeDevCommand": "pnpm dev",
     "devPath": "http://localhost:3000",
-    "beforeDevCommand": "npm run dev:web",
-    "beforeBuildCommand": "npm run build:web"
+    "distDir": "../dist"
+  },
+  "package": {
+    "productName": "bandnote",
+    "version": "0.1.0"
   },
   "tauri": {
+    "allowlist": {
+      "all": true
+    },
     "bundle": {
       "active": true,
-      "targets": ["dmg", "deb", "appimage", "msi"],
-      "identifier": "com.example.tauri-template",
+      "category": "DeveloperTool",
+      "copyright": "",
+      "deb": {
+        "depends": []
+      },
+      "externalBin": [],
       "icon": [
         "icons/32x32.png",
         "icons/128x128.png",
@@ -20,38 +29,38 @@
         "icons/icon.icns",
         "icons/icon.ico"
       ],
-      "resources": [],
-      "externalBin": [],
-      "copyright": "© 2022 Tauri Template",
-      "category": "DeveloperTool",
-      "shortDescription": "",
+      "identifier": "com.tauri.dev",
       "longDescription": "",
-      "deb": {
-        "depends": []
-      },
       "macOS": {
-        "frameworks": [],
-        "minimumSystemVersion": "10.13",
+        "entitlements": null,
         "exceptionDomain": "",
-        "signingIdentity": null,
-        "entitlements": null
+        "frameworks": [],
+        "providerShortName": null,
+        "signingIdentity": null
       },
+      "resources": [],
+      "shortDescription": "",
+      "targets": "all",
       "windows": {
         "certificateThumbprint": null,
         "digestAlgorithm": "sha256",
         "timestampUrl": ""
       }
     },
+    "security": {
+      "csp": null
+    },
     "updater": {
       "active": false
     },
-    "allowlist": {
-      "shell": {
-        "open": true
+    "windows": [
+      {
+        "fullscreen": false,
+        "height": 600,
+        "resizable": true,
+        "title": "Bandnote",
+        "width": 800
       }
-    },
-    "security": {
-      "csp": null
-    }
+    ]
   }
 }

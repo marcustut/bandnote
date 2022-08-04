@@ -1,32 +1,36 @@
-import { defineConfig } from 'vite'
-import { svelte } from '@sveltejs/vite-plugin-svelte'
-import sveltePreprocess from 'svelte-preprocess'
-import path from 'node:path'
+/// <reference types="vitest" />
+/// <reference types="vite/client" />
+
+import { defineConfig } from 'vite';
+import solidPlugin from 'vite-plugin-solid';
+import eslint from 'vite-plugin-eslint'
 
 export default defineConfig({
-  root: './src',
-  base: './', // use relative paths
-  publicDir: '../public',
-  clearScreen: false,
+  plugins: [solidPlugin(), eslint({ cache: true })],
   server: {
     port: 3000,
-    strictPort: true,
+  },
+  test: {
+    environment: 'jsdom',
+    globals: true,
+    transformMode: {
+      web: [/\.[jt]sx?$/],
+    },
+    setupFiles: './setupVitest.ts',
+    // solid needs to be inline to work around
+    // a resolution issue in vitest:
+    deps: {
+      inline: [/solid-js/],
+    },
+    // if you have few tests, try commenting one
+    // or both out to improve performance:
+    threads: false,
+    isolate: false,
   },
   build: {
-    outDir: '../build',
-    emptyOutDir: true,
-    minify: false,
-    sourcemap: true,
-    target: ['chrome64', 'edge79', 'firefox62', 'safari11.1'],
+    target: 'esnext',
   },
   resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "src")
-    }
+    conditions: ['development', 'browser'],
   },
-  plugins: [
-    svelte({
-      preprocess: sveltePreprocess(),
-    }),
-  ],
-})
+});

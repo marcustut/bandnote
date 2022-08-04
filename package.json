@@ -1,39 +1,45 @@
 {
-  "private": true,
+  "name": "bandnote",
+  "version": "0.0.0",
+  "description": "",
+  "type": "module",
   "scripts": {
+    "lint": "eslint --fix --ext .js,.jsx,.ts,.tsx ./src --ignore-path .gitignore",
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "test": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "postinstall": "node ./fix-jest-dom.mjs",
     "tauri": "tauri",
-    "dev": "tauri dev",
-    "dev:web": "vite",
-    "build": "tauri build",
-    "build:web": "vite build",
-    "test": "echo 'No tests'",
-    "lint": "prettier --check --plugin-search-dir=. src *.{js,ts} && eslint src *.{js,ts} && svelte-check",
-    "format": "prettier --write --plugin-search-dir=. src *.{js,ts} && eslint --fix src *.{js,ts}"
+    "prepare": "husky install"
   },
+  "license": "MIT",
   "devDependencies": {
-    "@sveltejs/vite-plugin-svelte": "^1.0.1",
-    "@tauri-apps/api": "^1.0.2",
-    "@tauri-apps/cli": "^1.0.2",
-    "@typescript-eslint/eslint-plugin": "^5.30.5",
-    "@typescript-eslint/parser": "^5.30.5",
-    "autoprefixer": "^10.4.7",
-    "eslint": "^8.19.0",
+    "@tauri-apps/cli": "^1.0.5",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@types/testing-library__jest-dom": "^5.14.5",
+    "@typescript-eslint/parser": "^5.32.0",
+    "c8": "^7.12.0",
+    "eslint": "^8.21.0",
     "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-svelte3": "^4.0.0",
-    "postcss": "^8.4.14",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "eslint-plugin-solid": "^0.7.1",
+    "husky": "^8.0.0",
+    "jsdom": "^20.0.0",
     "prettier": "^2.7.1",
-    "prettier-plugin-svelte": "^2.7.0",
-    "sass": "^1.53.0",
-    "svelte": "^3.48.0",
-    "svelte-check": "^2.8.0",
-    "svelte-preprocess": "^4.10.7",
-    "tailwindcss": "^3.1.6",
+    "solid-testing-library": "^0.3.0",
     "typescript": "^4.7.4",
-    "vite": "^3.0.2"
+    "vite": "^3.0.0",
+    "vite-plugin-eslint": "^1.7.0",
+    "vite-plugin-solid": "^2.3.0",
+    "vitest": "^0.18.0"
   },
-  "prettier": {
-    "printWidth": 100,
-    "semi": false,
-    "singleQuote": true
+  "dependencies": {
+    "@tauri-apps/api": "^1.0.2",
+    "solid-js": "^1.4.7"
   }
 }
