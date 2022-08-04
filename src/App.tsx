@@ -3,6 +3,7 @@ import { Route, Routes } from '@solidjs/router';
 
 import { Header, Layout } from '@/components';
 import Home from '@/pages/Home';
+import Test from '@/pages/Test';
 
 import '@/index.css';
 
@@ -24,6 +25,7 @@ export const App = () => {
       <Layout>
         <Routes>
           <Route path="/" component={Home} />
+          <Route path="/test" component={Test} />
         </Routes>
       </Layout>
     </>

@@ -8,7 +8,4 @@
 # located at the absolute path "root/project/build-output"
 publish = "dist/"
 # Default build command.
-command = "npm run build"
-
-[build.environment]
-NPM_FLAGS = "--prefix=/dev/null"
+command = "pnpm build || ( npm install pnpm && pnpm build )"
