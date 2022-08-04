@@ -26,5 +26,10 @@
       }
     ],
     "simple-import-sort/exports": "error"
+  },
+  "env": {
+    "browser": true,
+    "amd": true,
+    "node": true
   }
 }

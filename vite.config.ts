@@ -1,9 +1,10 @@
 /// <reference types="vitest" />
 /// <reference types="vite/client" />
 
+import path from 'node:path';
 import { defineConfig } from 'vite';
+import eslint from 'vite-plugin-eslint';
 import solidPlugin from 'vite-plugin-solid';
-import eslint from 'vite-plugin-eslint'
 
 export default defineConfig({
   plugins: [solidPlugin(), eslint({ cache: true })],
@@ -32,5 +33,8 @@ export default defineConfig({
   },
   resolve: {
     conditions: ['development', 'browser'],
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+    },
   },
 });

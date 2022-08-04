@@ -1,5 +1,13 @@
 import { render } from 'solid-js/web';
+import { Router } from '@solidjs/router';
 
-import { TodoList } from './todo-list';
+import { App } from '@/App';
 
-render(() => <TodoList />, document.getElementById('root')!);
+render(
+  () => (
+    <Router>
+      <App />
+    </Router>
+  ),
+  document.getElementById('root')!
+);
